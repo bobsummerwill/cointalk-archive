@@ -1,0 +1,36 @@
+.mejs-container, .mejs-embed, .mejs-embed body {
+	background: #464646;
+}
+
+.mejs-controls .mejs-time-rail .mejs-time-loaded {
+	background: #21759b;
+}
+
+.mejs-controls .mejs-time-rail .mejs-time-current {
+	background: #d54e21;
+}
+
+.me-cannotplay {
+	width: auto !important;
+}
+
+/*
+     FILE ARCHIVED ON 18:50:37 May 02, 2014 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:05:15 Sep 18, 2025.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.714
+  exclusion.robots: 0.028
+  exclusion.robots.policy: 0.012
+  esindex: 0.013
+  cdx.remote: 139.745
+  LoadShardBlock: 180.04 (3)
+  PetaboxLoader3.datanode: 449.186 (4)
+  load_resource: 399.773
+  PetaboxLoader3.resolve: 55.558
+*/

@@ -1,0 +1,115 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/**
+ * Functionality specific to Twenty Thirteen.
+ *
+ * Provides helper functions to enhance the theme experience.
+ */
+
+( function( $ ) {
+	var body    = $( 'body' ),
+	    _window = $( window );
+
+	/**
+	 * Adds a top margin to the footer if the sidebar widget area is higher
+	 * than the rest of the page, to help the footer always visually clear
+	 * the sidebar.
+	 */
+	$( function() {
+		if ( body.is( '.sidebar' ) ) {
+			var sidebar   = $( '#secondary .widget-area' ),
+			    secondary = ( 0 == sidebar.length ) ? -40 : sidebar.height(),
+			    margin    = $( '#tertiary .widget-area' ).height() - $( '#content' ).height() - secondary;
+
+			if ( margin > 0 && _window.innerWidth() > 999 )
+				$( '#colophon' ).css( 'margin-top', margin + 'px' );
+		}
+	} );
+
+	/**
+	 * Enables menu toggle for small screens.
+	 */
+	( function() {
+		var nav = $( '#site-navigation' ), button, menu;
+		if ( ! nav )
+			return;
+
+		button = nav.find( '.menu-toggle' );
+		if ( ! button )
+			return;
+
+		// Hide button if menu is missing or empty.
+		menu = nav.find( '.nav-menu' );
+		if ( ! menu || ! menu.children().length ) {
+			button.hide();
+			return;
+		}
+
+		$( '.menu-toggle' ).on( 'click.twentythirteen', function() {
+			nav.toggleClass( 'toggled-on' );
+		} );
+	} )();
+
+	/**
+	 * Makes "skip to content" link work correctly in IE9 and Chrome for better
+	 * accessibility.
+	 *
+	 * @link http://www.nczonline.net/blog/2013/01/15/fixing-skip-to-content-links/
+	 */
+	_window.on( 'hashchange.twentythirteen', function() {
+		var element = document.getElementById( location.hash.substring( 1 ) );
+
+		if ( element ) {
+			if ( ! /^(?:a|select|input|button|textarea)$/i.test( element.tagName ) )
+				element.tabIndex = -1;
+
+			element.focus();
+		}
+	} );
+
+	/**
+	 * Arranges footer widgets vertically.
+	 */
+	if ( $.isFunction( $.fn.masonry ) ) {
+		var columnWidth = body.is( '.sidebar' ) ? 228 : 245;
+
+		$( '#secondary .widget-area' ).masonry( {
+			itemSelector: '.widget',
+			columnWidth: columnWidth,
+			gutterWidth: 20,
+			isRTL: body.is( '.rtl' )
+		} );
+	}
+} )( jQuery );
+
+}
+/*
+     FILE ARCHIVED ON 18:58:17 May 02, 2014 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 23:05:23 Sep 18, 2025.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.446
+  exclusion.robots: 0.017
+  exclusion.robots.policy: 0.008
+  esindex: 0.009
+  cdx.remote: 10.652
+  LoadShardBlock: 352.476 (3)
+  PetaboxLoader3.resolve: 151.722 (3)
+  PetaboxLoader3.datanode: 321.51 (5)
+  load_resource: 156.26 (2)
+*/
