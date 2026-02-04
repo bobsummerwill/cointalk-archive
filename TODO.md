@@ -17,6 +17,7 @@ This is a temporary working checklist to keep the PR on track. Delete before mer
 - [ ] Rebuild `docs/` and validate locally (incl. subpath-like serving) and via githack.
 
 ## Follow-ups
+- [ ] MP3s: after HTML/CSS fixes are solid, ensure all MP3 files are local **except** the one huge file that should remain a Wayback link.
 - [ ] Ensure no unexpected MP3 downloads in HTML-first mode; keep file-size constraints in mind.
 - [ ] Add/expand README notes about subpath hosting if needed.
 
