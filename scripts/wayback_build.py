@@ -623,13 +623,21 @@ class Builder:
 
         # Second pass: catch URLs inside conditional comments, inline <style> blocks,
         # and other places BeautifulSoup doesn't reliably expose as tag attributes.
-        embedded_re = re.compile(r"(?P<url>(?:https?:)?//[^\"'\s<>\)]+)")
+        # Catch absolute URLs plus root-relative URLs that appear in inline CSS, <style>,
+        # conditional comments, and other text nodes.
+        #
+        # We intentionally do NOT match general relative paths here (e.g. "wp-content/..."),
+        # because those can be ambiguous without a base URL.
+        embedded_re = re.compile(r"(?P<url>(?:https?:)?//[^\"'\s<>\)]+|/[^\"'\s<>\)]+)")
 
         def embedded_repl(m: re.Match) -> str:
             raw = m.group("url")
             abs_url = raw
             if raw.startswith("//"):
                 abs_url = "http:" + raw
+            elif raw.startswith("/"):
+                # Root-relative URL embedded in HTML text; resolve it against the page URL.
+                abs_url = urljoin(original_url, raw)
             abs_url = _unwrap_wayback_url(abs_url)
             if not _is_internal(abs_url, self.allowed_hosts):
                 return raw
