@@ -270,7 +270,8 @@ def cdx_list_urls(session: requests.Session, *, host: str, from_ts: str = "19900
         "to": to_ts,
         "output": "json",
         "fl": "original",
-        "filter": "statuscode:200",
+        # Don't filter only 200s: many useful WP pages are archived as redirects (3xx)
+        # and we still want to mirror them.
         "collapse": "urlkey",
     }
     r = session.get(WAYBACK_CDX, params=params, timeout=120)
@@ -529,6 +530,11 @@ class Builder:
                 if not val:
                     continue
 
+                # Fix a common broken internal link found in the archive HTML.
+                if attr == "href" and isinstance(val, str) and val.strip() == "CoinTalk.ca":
+                    tag[attr] = "../"
+                    continue
+
                 if attr == "srcset":
                     # srcset is a comma-separated list.
                     parts = [p.strip() for p in val.split(",") if p.strip()]
@@ -547,7 +553,7 @@ class Builder:
                                     if snap:
                                         new_url = self._wayback_identity_url(snap.wayback_url, snap.timestamp)
                                     else:
-                                        new_url = url_part
+                                        new_url = f"https://web.archive.org/web/*/{abs_url}"
                                     if descriptor:
                                         new_parts.append(f"{new_url} {descriptor}")
                                     else:
@@ -576,6 +582,10 @@ class Builder:
                 if not _is_internal(abs_url, self.allowed_hosts):
                     continue
 
+                # Canonicalize some WP-sharing variants.
+                if attr == "href" and "share=email" in abs_url:
+                    abs_url = abs_url.split("?", 1)[0]
+
                 # Some resources are intentionally left on Wayback (not vendored locally).
                 external = self._externalize_url_if_needed(abs_url)
                 if external is not None:
@@ -583,13 +593,24 @@ class Builder:
                     continue
 
                 treat_asset = _looks_like_asset(abs_url)
+
+                # HTML-first mode: don't vendor audio/video.
                 if self.html_only and treat_asset:
                     ext = Path(urlparse(abs_url).path).suffix.lower()
                     if ext in {".mp3", ".m4a", ".mp4"}:
                         snap = self.resolve_snapshot(abs_url)
                         if snap:
                             tag[attr] = self._wayback_identity_url(snap.wayback_url, snap.timestamp)
+                        else:
+                            tag[attr] = f"https://web.archive.org/web/*/{abs_url}"
                         continue
+
+                # If we can't find any snapshot for an internal HTML page, don't create
+                # a dead internal link: point to Wayback wildcard instead.
+                if not treat_asset and self.resolve_snapshot(abs_url) is None:
+                    tag[attr] = f"https://web.archive.org/web/*/{abs_url}"
+                    continue
+
                 local_file = _local_path_for_original(abs_url, self.out_dir, treat_as_html=(not treat_asset))
                 tag[attr] = _href_for_local_file(local_file, self.out_dir, from_path=html_path)
 
@@ -799,7 +820,8 @@ def main() -> int:
             if p == "/" or p == "":
                 return True
 
-            # HTML-first mode: only seed HTML-ish navigational pages.
+            # HTML-first mode: seed HTML-ish navigational pages and the WP assets
+            # needed to render them. We still skip Audio seeding (audio stays on Wayback).
             if args.html_only:
                 prefixes = [
                     "/2013/",
@@ -814,9 +836,16 @@ def main() -> int:
                     "/the-crew",
                     "/policy",
                     "/cointalk-",
+                    # known linked pages that aren't cointalk-* posts
+                    "/chatter/",
+                    "/hello-world/",
                     "/feed",
                     "/comments/",
+                    "/wp-content/",
+                    "/wp-includes/",
                 ]
+                if p.startswith("/Audio/"):
+                    return False
                 return any(p.startswith(pre) for pre in prefixes)
 
             # Full mode (includes assets + audio seeding)
