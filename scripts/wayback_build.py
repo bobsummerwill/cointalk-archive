@@ -94,16 +94,25 @@ def _normalize_original_url(original_url: str) -> str:
 
     CDX often returns URLs with explicit :80; Wayback availability is inconsistent
     about that, so we strip default ports.
+
+    We also canonicalize some common homepage variants (e.g. /index.html -> /)
+    to reduce duplicate work and "No snapshot found" spam.
     """
     u = _safe_urlparse(original_url)
     if not u:
         return original_url
+
     netloc = u.netloc
     if netloc.endswith(":80") and u.scheme == "http":
         netloc = netloc[: -len(":80")]
     if netloc.endswith(":443") and u.scheme == "https":
         netloc = netloc[: -len(":443")]
-    return urlunparse((u.scheme, netloc, u.path, u.params, u.query, u.fragment))
+
+    path = u.path or ""
+    if path == "/index.html":
+        path = "/"
+
+    return urlunparse((u.scheme, netloc, path, u.params, u.query, u.fragment))
 
 
 def _local_path_for_original(original_url: str, out_dir: Path, *, treat_as_html: bool) -> Path:
@@ -319,9 +328,11 @@ class Builder:
 
         self.cache_dir.mkdir(parents=True, exist_ok=True)
         self.snapshot_cache_path = self.cache_dir / "snapshot_cache.json"
+        self.snapshot_miss_cache_path = self.cache_dir / "snapshot_miss_cache.json"
         self.download_cache_path = self.cache_dir / "download_cache.json"
 
         self.snapshot_cache: Dict[str, Snapshot] = {}
+        self.snapshot_miss_cache: Set[str] = set()
         self.download_cache: Dict[str, Dict[str, str]] = {}
         self._load_caches()
 
@@ -339,6 +350,11 @@ class Builder:
                 self.snapshot_cache[k] = Snapshot(
                     original=v["original"], timestamp=v["timestamp"], wayback_url=v["wayback_url"]
                 )
+        if self.snapshot_miss_cache_path.exists():
+            data = json.loads(self.snapshot_miss_cache_path.read_text("utf-8"))
+            if isinstance(data, list):
+                self.snapshot_miss_cache = set([x for x in data if isinstance(x, str)])
+
         if self.download_cache_path.exists():
             self.download_cache = json.loads(self.download_cache_path.read_text("utf-8"))
 
@@ -351,12 +367,18 @@ class Builder:
             ),
             "utf-8",
         )
+        self.snapshot_miss_cache_path.write_text(
+            json.dumps(sorted(self.snapshot_miss_cache), indent=2, sort_keys=True),
+            "utf-8",
+        )
         self.download_cache_path.write_text(json.dumps(self.download_cache, indent=2, sort_keys=True), "utf-8")
 
     def resolve_snapshot(self, original_url: str) -> Optional[Snapshot]:
         original_url = _normalize_original_url(_unwrap_wayback_url(original_url))
         if original_url in self.snapshot_cache:
             return self.snapshot_cache[original_url]
+        if original_url in self.snapshot_miss_cache:
+            return None
 
         def lookup(u: str) -> Optional[dict]:
             params = {"url": u, "timestamp": self.desired_timestamp}
@@ -380,6 +402,9 @@ class Builder:
                 stripped = urlunparse((u.scheme, u.netloc, u.path, u.params, "", u.fragment))
                 closest = lookup(stripped)
             if not closest:
+                # Negative cache misses to avoid repeated network lookups and log spam.
+                self.snapshot_miss_cache.add(original_url)
+                self._save_caches()
                 self._log(f"No snapshot found: {original_url}")
                 return None
         snap = Snapshot(original=original_url, timestamp=closest["timestamp"], wayback_url=closest["url"])
@@ -603,6 +628,18 @@ class Builder:
                             tag[attr] = self._wayback_identity_url(snap.wayback_url, snap.timestamp)
                         else:
                             tag[attr] = f"https://web.archive.org/web/*/{abs_url}"
+                        continue
+
+                # Skip internal-but-nonessential WordPress endpoints that are frequently
+                # linked from <head> metadata (and are often missing from Wayback), to
+                # avoid repeated "No snapshot found" lookups.
+                if not treat_asset:
+                    try:
+                        p = urlparse(abs_url).path or ""
+                    except Exception:
+                        p = ""
+                    if p in {"/xmlrpc.php", "/wp-login.php"} or p.startswith("/wp-admin/"):
+                        tag[attr] = f"https://web.archive.org/web/*/{abs_url}"
                         continue
 
                 # If we can't find any snapshot for an internal HTML page, don't create
