@@ -746,48 +746,146 @@ class Builder:
         css_path.write_text(text, "utf-8")
         return discovered_assets
 
-    def build(self, seeds: Iterable[str]) -> None:
+    def build(
+        self,
+        seeds: Iterable[str],
+        *,
+        batch_items: Optional[int] = None,
+        progress_path: Optional[Path] = None,
+        resume: bool = True,
+        save_every: int = 25,
+    ) -> None:
+        """Build the mirror.
+
+        batch_items:
+          If set, stop after downloading/reusing this many items in this invocation.
+          This is meant to keep runs short so we can checkpoint frequently.
+
+        progress_path/resume:
+          Persist/restore queue + seen state so the build can survive SIGKILL and be
+          resumed.
+        """
+
         self.out_dir.mkdir(parents=True, exist_ok=True)
         (self.out_dir / ".nojekyll").write_text("", "utf-8")
 
+        if progress_path is None:
+            progress_path = self.cache_dir / "progress.json"
+
         q: deque[Tuple[str, bool]] = deque()
         seen: Set[str] = set()
-        count = 0
+        total_count = 0
 
+        def load_progress() -> None:
+            nonlocal total_count
+            if not resume or not progress_path or not progress_path.exists():
+                return
+            try:
+                data = json.loads(progress_path.read_text("utf-8"))
+            except Exception:
+                return
+
+            if isinstance(data, dict):
+                total_count = int(data.get("total_count", 0) or 0)
+                s = data.get("seen", [])
+                if isinstance(s, list):
+                    for u in s:
+                        if isinstance(u, str):
+                            seen.add(u)
+                qq = data.get("queue", [])
+                if isinstance(qq, list):
+                    for row in qq:
+                        if isinstance(row, list) and len(row) == 2 and isinstance(row[0], str):
+                            q.append((row[0], bool(row[1])))
+
+        def save_progress(*, last_url: Optional[str] = None) -> None:
+            if not progress_path:
+                return
+            payload = {
+                "version": 1,
+                "updated": time.time(),
+                "total_count": total_count,
+                "last_url": last_url,
+                "seen": sorted(seen),
+                "queue": [[u, treat_as_html] for (u, treat_as_html) in q],
+            }
+            tmp = progress_path.with_suffix(progress_path.suffix + ".tmp")
+            tmp.write_text(json.dumps(payload, indent=2, sort_keys=True), "utf-8")
+            tmp.replace(progress_path)
+
+        load_progress()
+
+        # Add seeds (preserve order) while avoiding duplicates.
+        queued = set([u for (u, _) in q])
         for s in seeds:
-            q.append((s, True))
-
-        while q:
-            original_url, treat_as_html = q.popleft()
-            original_url = _unwrap_wayback_url(original_url)
-            if original_url in seen:
+            u = _unwrap_wayback_url(s)
+            if u in seen or u in queued:
                 continue
-            seen.add(original_url)
+            q.append((u, True))
+            queued.add(u)
 
-            if self.max_items is not None and count >= self.max_items:
-                self._log("Reached --max-items limit")
-                break
+        run_count = 0
+        processed_since_save = 0
+        last_url: Optional[str] = None
 
-            local = self.download(original_url, treat_as_html=treat_as_html)
-            if not local:
-                continue
+        try:
+            while q:
+                original_url, treat_as_html = q.popleft()
+                original_url = _unwrap_wayback_url(original_url)
+                if original_url in seen:
+                    continue
+                seen.add(original_url)
+                last_url = original_url
 
-            count += 1
+                if self.max_items is not None and total_count >= self.max_items:
+                    self._log("Reached --max-items limit")
+                    break
 
-            # Post-process.
-            if treat_as_html:
-                discovered_html, discovered_assets = self.rewrite_html_in_place(local)
-                for u in sorted(discovered_assets):
-                    q.append((u, False))
-                for u in sorted(discovered_html):
-                    q.append((u, True))
-            else:
-                if local.suffix.lower() == ".css":
-                    discovered_assets = self.rewrite_css_in_place(local)
+                local = self.download(original_url, treat_as_html=treat_as_html)
+                if not local:
+                    continue
+
+                total_count += 1
+                run_count += 1
+                processed_since_save += 1
+
+                # Post-process.
+                if treat_as_html:
+                    discovered_html, discovered_assets = self.rewrite_html_in_place(local)
                     for u in sorted(discovered_assets):
-                        q.append((u, False))
+                        uu = _unwrap_wayback_url(u)
+                        if uu not in seen:
+                            q.append((uu, False))
+                    for u in sorted(discovered_html):
+                        uu = _unwrap_wayback_url(u)
+                        if uu not in seen:
+                            q.append((uu, True))
+                else:
+                    if local.suffix.lower() == ".css":
+                        discovered_assets = self.rewrite_css_in_place(local)
+                        for u in sorted(discovered_assets):
+                            uu = _unwrap_wayback_url(u)
+                            if uu not in seen:
+                                q.append((uu, False))
 
-        self._log(f"Done. Downloaded/reused {count} items into {self.out_dir}")
+                if processed_since_save >= max(1, save_every):
+                    save_progress(last_url=last_url)
+                    processed_since_save = 0
+
+                if batch_items is not None and run_count >= batch_items:
+                    self._log(f"Reached --batch-items limit ({batch_items}); saving progress and stopping")
+                    break
+
+        except KeyboardInterrupt:
+            self._log("Interrupted; saving progress")
+
+        # Always save progress at end of run.
+        save_progress(last_url=last_url)
+
+        self._log(
+            f"Done. This run: {run_count} items. Total downloaded/reused: {total_count} items into {self.out_dir}. "
+            f"Progress: {progress_path}"
+        )
 
 
 def main() -> int:
@@ -802,6 +900,22 @@ def main() -> int:
         help="Use Wayback CDX to enumerate URLs for cointalk.ca + www.cointalk.ca and use them as seeds (inventory-driven build)",
     )
     ap.add_argument("--max-items", type=int, default=None, help="Limit total downloaded items (debug)")
+    ap.add_argument(
+        "--batch-items",
+        type=int,
+        default=200,
+        help="Stop after this many downloaded/reused items (default: 200). Use 0 for unlimited.",
+    )
+    ap.add_argument(
+        "--progress-file",
+        default=None,
+        help="Path to progress JSON for resumable runs (default: <cache-dir>/progress.json)",
+    )
+    ap.add_argument(
+        "--no-resume",
+        action="store_true",
+        help="Do not load prior progress; start fresh queue from seeds",
+    )
     ap.add_argument(
         "--html-only",
         action="store_true",
@@ -926,7 +1040,18 @@ def main() -> int:
         seen.add(s)
         uniq_seeds.append(s)
 
-    b.build(uniq_seeds)
+    batch_items = args.batch_items
+    if batch_items is not None and batch_items <= 0:
+        batch_items = None
+
+    progress_path = Path(args.progress_file) if args.progress_file else (cache_dir / "progress.json")
+
+    b.build(
+        uniq_seeds,
+        batch_items=batch_items,
+        progress_path=progress_path,
+        resume=not args.no_resume,
+    )
     return 0
 
 
