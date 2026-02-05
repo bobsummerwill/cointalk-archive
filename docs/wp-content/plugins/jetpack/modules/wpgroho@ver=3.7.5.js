@@ -1,4 +1,4 @@
-WPGroHo = jQuery.extend( {
+<html><body>WPGroHo = jQuery.extend( {
 	my_hash: '',
 	data: {},
 	renderers: {},
@@ -18,7 +18,7 @@ WPGroHo = jQuery.extend( {
 				return WPGroHo.renderers[key]( data[key], hash, id, key );
 			}
 
-			jQuery( '#' + id ).find( 'h4' ).after( jQuery( '<p class="grav-extra ' + key + '" />' ).html( data[key] ) );
+			jQuery( '#' + id ).find( 'h4' ).after( jQuery( '<p class="grav-extra ' + key + '"></p>' ).html( data[key] ) );
 		}
 	}
 }, WPGroHo );
@@ -31,3 +31,4 @@ jQuery( document ).ready( function( $ ) {
 	Gravatar.my_hash = WPGroHo.my_hash;
 	Gravatar.init( 'body', '#wpadminbar' );
 } );
+</body></html>

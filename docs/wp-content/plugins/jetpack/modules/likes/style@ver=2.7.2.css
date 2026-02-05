@@ -1,4 +1,4 @@
-#wpadminbar li#wp-admin-bar-admin-bar-likes-widget {
+<html><body>#wpadminbar li#wp-admin-bar-admin-bar-likes-widget {
 	width: 61px;
 	overflow: hidden;
 }
@@ -206,3 +206,4 @@ div.sharedaddy.sd-rating-enabled .sd-like h3, div.sharedaddy.sd-sharing-enabled 
 .comment-likes-widget {
 	width: 100%;
 }
+</body></html>

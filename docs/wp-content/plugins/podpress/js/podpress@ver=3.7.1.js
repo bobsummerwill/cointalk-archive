@@ -41,25 +41,25 @@
 		var strResult = '';
 		strResult += '<div '+stronclick+'="" class="podPress_videoplayer_wrapper" style="width: '+String(Number(numWidth)+14)+'px; height: '+String(Number(numHeight)+54)+'px; padding:0px; margin:0px; display:block;">';
 		strResult += '	<div class="podPress_videoplayer_toprow" style="display:block; width:100%; padding:0px; margin:0px;">';
-		strResult += '		<img alt="" src="'+podPressBackendURL+'images/vpreview_top_left.png" style="width:7px; height:27px; display:inline; float:left; border:0px; padding:0px; margin:0px;"/>';
-		strResult += '		<span style="height:27px; border:0px; display:block; float:left; padding:0px; margin:0px; width: '+numWidth+'px; text-align:center; background:url(\''+podPressBackendURL+'images/vpreview_top_background.png\'); background-repeat: repeat-x;"><img alt="" src="'+podPressBackendURL+'images/vpreview_top_middle.png" style="width:119px; height:27px padding:0px; margin:0px;  float:none; border:0px;"/></span>';
-		strResult += '		<img alt="" src="'+podPressBackendURL+'images/vpreview_top_right.png" style="width:7px; height:27px; display:inline; float:left; border:0px; padding:0px; margin:0px;"/>';
+		strResult += '		<img alt="" src="..../../../../vpreview_top_left.png" style="width:7px; height:27px; display:inline; float:left; border:0px; padding:0px; margin:0px;"/>';
+		strResult += '		<span style="height:27px; border:0px; display:block; float:left; padding:0px; margin:0px; width: '+numWidth+'px; text-align:center; background:url(\''+podPressBackendURL+'images/vpreview_top_background.png\'); background-repeat: repeat-x;"><img alt="" src="..../../../../vpreview_top_middle.png" style="width:119px; height:27px padding:0px; margin:0px;  float:none; border:0px;"/></span>';
+		strResult += '		<img alt="" src="..../../../../vpreview_top_right.png" style="width:7px; height:27px; display:inline; float:left; border:0px; padding:0px; margin:0px;"/>';
 		strResult += '	</div>';
 		
 		if (25 &lt; Number(numHeight)) { // if the height value is smaller than 25 px then create a player preview without an cover or chapter image
 		strResult += '	<div class="podPress_videoplayer_middlerow" style="clear:left; width:100%; padding:0px; margin:0px;">';
 		strResult += '		<span style="width:7px; height:'+numHeight+'px; padding:0px; margin:0px; display:block; float:left; background:url(\''+podPressBackendURL+'images/vpreview_left_background.png\'); background-repeat:repeat-y;"></span>';
-		strResult += '		<img alt="previewImg" class="podPress_previewImage" id="podPress_previewImageIMG_'+strPlayerDiv+'" src="'+podPress_https_check(strPreviewImg)+'/" style="width:'+numWidth+'px; height:'+numHeight+'px; padding:0px; margin:0px; border:0px; float:left; display:inline;"/>';
+		strResult += '		<img alt="previewImg" class="podPress_previewImage" id="podPress_previewImageIMG_'+strPlayerDiv+'" src="https://web.archive.org/web/*/http://cointalk.ca/wp-content/plugins/podpress/js/'+podPress_https_check(strPreviewImg)+'" style="width:'+numWidth+'px; height:'+numHeight+'px; padding:0px; margin:0px; border:0px; float:left; display:inline;"/>';
 		strResult += '		<span style="width:7px; height:'+numHeight+'px; padding:0px; margin:0px; display:block; float:left; background:url(\''+podPressBackendURL+'images/vpreview_right_background.png\'); background-repeat:repeat-y;"></span>';
 		strResult += '	</div>';
 		}
 		
 		strResult += '	<div class="podPress_videoplayer_bottomrow" style="width:100%; padding:0px; margin:0px;">';
-		strResult += '		<img alt="" src="'+podPressBackendURL+'images/vpreview_bottom_left.png" style="width:7px; height:23px; display:inline; float:left; border:0px; padding:0px; margin:0px;"/>';
-		strResult += '		<span style="display:block; float:left; padding:0px; margin:0px; text-align: left; background:url(\''+podPressBackendURL+'images/vpreview_bottom_background.png\'); background-repeat: repeat-x;"><img alt="" src="'+podPressBackendURL+'images/vpreview_bottom_middle_left.png" style="width:56px; height:23px; display:inline; border:0px; padding:0px; margin:0px;"/></span>';
+		strResult += '		<img alt="" src="..../../../../vpreview_bottom_left.png" style="width:7px; height:23px; display:inline; float:left; border:0px; padding:0px; margin:0px;"/>';
+		strResult += '		<span style="display:block; float:left; padding:0px; margin:0px; text-align: left; background:url(\''+podPressBackendURL+'images/vpreview_bottom_background.png\'); background-repeat: repeat-x;"><img alt="" src="..../../../../vpreview_bottom_middle_left.png" style="width:56px; height:23px; display:inline; border:0px; padding:0px; margin:0px;"/></span>';
 		strResult += '		<span style="height:23px; display:block; float:left; padding:0px; margin:0px; width:'+String(Math.abs(Number(numWidth)-112))+'px; background:url(\''+podPressBackendURL+'images/vpreview_bottom_background.png\'); background-repeat: repeat-x;"></span>';
-		strResult += '		<span style="display:block; float:left; padding:0px; margin:0px; text-align:right; background:url(\''+podPressBackendURL+'images/vpreview_bottom_background.png\'); background-repeat: repeat-x;"><img alt="" src="'+podPressBackendURL+'images/vpreview_bottom_middle_right.png" style="width:56px; height:23px; display:inline; border:0px; padding:0px; margin:0px;"/></span>';
-		strResult += '		<img alt="" src="'+podPressBackendURL+'images/vpreview_bottom_right.png" style="width:7px; height:23px; display:inline; float:left; border:0px; padding:0px; margin:0px;"/>';
+		strResult += '		<span style="display:block; float:left; padding:0px; margin:0px; text-align:right; background:url(\''+podPressBackendURL+'images/vpreview_bottom_background.png\'); background-repeat: repeat-x;"><img alt="" src="..../../../../vpreview_bottom_middle_right.png" style="width:56px; height:23px; display:inline; border:0px; padding:0px; margin:0px;"/></span>';
+		strResult += '		<img alt="" src="..../../../../vpreview_bottom_right.png" style="width:7px; height:23px; display:inline; float:left; border:0px; padding:0px; margin:0px;"/>';
 		strResult += '	</div>';
 		strResult += '</div>';
 		return String(strResult);
@@ -225,7 +225,7 @@
 					var maskedurl = decodeURI(strMediaFile);
 					var realurl = podPress_get_OrigURL(strPlayerDiv);
 					strResult = '&lt;' + strTag + ' id="podpresshtml5_'+strPlayerDiv+'" controls="controls" preload="metadata"' + strAutoPlay + ' onplaying="podPress_html5_count(\'' + maskedurl + '\', this.id)"&gt;';
-					strResult += '<source src="' + realurl + '/" type="' + strTag + '/ogg"/>';
+					strResult += '<source src="https://web.archive.org/web/*/http://cointalk.ca/wp-content/plugins/podpress/js/' + realurl + '" type="' + strTag + '/ogg"/>';
 					var use_html5 = true;
 				} else {
 					strResult += '<object class="podpress_player_object" classid="clsid:CAFEEFAC-0015-0000-0000-ABCDEFFEDCBA" height="'+numHeight+'" type="application/x-java-applet;jpi-version=1.5.0" width="'+numWidth+'">';
@@ -284,7 +284,7 @@
 				}
 				strResult = '';
 				if(podPressMP3PlayerWrapper) {
-					strResult += '<div style="width:342px; height:40px; padding:0px; margin:0px; background-image:url('+podPressBackendURL+'images/listen_wrapper.gif); display:block;"><span style="width:45px;height:40px;display:block;float:left;"> </span>';
+					strResult += '<div style="width:342px; height:40px; padding:0px; margin:0px; background-image:url('+podPressBackendURL+'images..../../../../listen_wrapper.gif); display:block;"><span style="width:45px;height:40px;display:block;float:left;"> </span>';
 					strResult += '<div style="width:290px; height:24px; margin:0px; padding:8px 0px 8px 0px; display:block; float:left; background-color:transparent;">';
 				}
 				strResult += '<object class="podpress_player_object" classid="CLSID:D27CDB6E-AE6D-11cf-96B8-444553540000" data="'+podPressBackendURL+'players/'+podPressPlayerFile+'" height="24" id="audioplayer'+strPlayerDiv+'" style="display:block;" type="application/x-shockwave-flash" width="290">';
@@ -333,7 +333,7 @@
 			refPlayerDivLink.innerHTML=podPressText_HidePlayer;
 			refPlayerDivLink.parentNode.onclick = function(){ podPressShowHidePlayer(strPlayerDiv, strMediaFile, numWidth, numHeight, 'true', strPreviewImg, strTitle, strArtist); return false; };
 			if ( strExt == 'mp3' &amp;&amp; podPressPlayerFile == '1pixelout_player.swf' &amp;&amp; true == podPressMP3PlayerWrapper ) {
-				document.getElementById('podpress_lwc_' + strPlayerDiv).style.backgroundImage = 'url('+podPressBackendURL+'images/listen_wrapper.gif)';
+				document.getElementById('podpress_lwc_' + strPlayerDiv).style.backgroundImage = 'url('+podPressBackendURL+'images..../../../../listen_wrapper.gif)';
 				document.getElementById('podpress_lwc_' + strPlayerDiv).style.display='block';
 			}
 			refPlayerDiv.parentNode.style.display='block';
@@ -342,7 +342,7 @@
 			if(refPlayerDivLink.innerHTML == podPressText_PlayNow) {
 				refPlayerDivLink.innerHTML=podPressText_HidePlayer;
 				if ( strExt == 'mp3' &amp;&amp; podPressPlayerFile == '1pixelout_player.swf' &amp;&amp; true == podPressMP3PlayerWrapper ) {
-					document.getElementById('podpress_lwc_' + strPlayerDiv).style.backgroundImage = 'url('+podPressBackendURL+'images/listen_wrapper.gif)';
+					document.getElementById('podpress_lwc_' + strPlayerDiv).style.backgroundImage = 'url('+podPressBackendURL+'images..../../../../listen_wrapper.gif)';
 					document.getElementById('podpress_lwc_' + strPlayerDiv).style.display='block';
 				}
 				refPlayerDiv.parentNode.style.display='block';
@@ -390,7 +390,7 @@
 			if ( podPressHTML5_showplayersdirectly == true || -1 != navigator.userAgent.search(/iPhone|iPod|iPad/gi) ) {
 				podPressenprintHTML5audio(strPlayerDiv, strMediaFile);
 			} else {
-				document.getElementById('podPressPlayerSpace_' + strPlayerDiv).innerHTML = '<a class="podpress_play_button" href="javascript:void(null);" id="podpress_html5_play_'+ strPlayerDiv+'" onclick="podPressenprintHTML5audio(\''+strPlayerDiv+'\', \'' + strMediaFile + '\', true);" style="background-image:url('+podPressBackendURL+'images/play_button_dyn_v4_32.png);" title="' + podpressL10.playbutton + '"></a>';
+				document.getElementById('podPressPlayerSpace_' + strPlayerDiv).innerHTML = '<a class="podpress_play_button" href="javascript:void(null);" id="podpress_html5_play_'+ strPlayerDiv+'" onclick="podPressenprintHTML5audio(\''+strPlayerDiv+'\', \'' + strMediaFile + '\', true);" style="background-image:url('+podPressBackendURL+'images..../../../../play_button_dyn_v4_32.png);" title="' + podpressL10.playbutton + '"></a>';
 			}
 		} else {
 			if ( strExt == 'mp3' &amp;&amp; podPressPlayerFile == '1pixelout_player.swf' ) {
@@ -425,9 +425,9 @@
 			var chrome_css_helper = '';
 		}
 		if ( playnow == true ) {
-			document.getElementById('podPressPlayerSpace_' + strPlayerDiv).innerHTML = '<audio '="" +="" autoplay="autoplay" chrome_css_helper="" controls="controls" id="podpresshtml5_'+strPlayerDiv+'" onplaying="podPress_html5_count(\'' + maskedurl + '\', this.id)" preload="auto"><source src="' + realurl + '/" type="audio/mpeg"/></audio>';
+			document.getElementById('podPressPlayerSpace_' + strPlayerDiv).innerHTML = '<audio '="" +="" autoplay="autoplay" chrome_css_helper="" controls="controls" id="podpresshtml5_'+strPlayerDiv+'" onplaying="podPress_html5_count(\'' + maskedurl + '\', this.id)" preload="auto"><source src="https://web.archive.org/web/*/http://cointalk.ca/wp-content/plugins/podpress/js/' + realurl + '" type="audio/mpeg"/></audio>';
 		} else {
-			document.getElementById('podPressPlayerSpace_' + strPlayerDiv).innerHTML = '<audio '="" +="" chrome_css_helper="" controls="controls" id="podpresshtml5_'+strPlayerDiv+'" onplaying="podPress_html5_count(\'' + maskedurl + '\', this.id)" preload="none"><source src="' + realurl + '/" type="audio/mpeg"/></audio>';
+			document.getElementById('podPressPlayerSpace_' + strPlayerDiv).innerHTML = '<audio '="" +="" chrome_css_helper="" controls="controls" id="podpresshtml5_'+strPlayerDiv+'" onplaying="podPress_html5_count(\'' + maskedurl + '\', this.id)" preload="none"><source src="https://web.archive.org/web/*/http://cointalk.ca/wp-content/plugins/podpress/js/' + realurl + '" type="audio/mpeg"/></audio>';
 		}
 	}
 	
@@ -544,11 +544,12 @@
 		if (typeof numHeight == 'undefined') { numHeight = 240; }
 		
 		var strResult = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
 \n';
 		strResult += '\n';
 		strResult += '\n';
 		strResult += '<title>'+windowName+' - Popup Player</title>\n';
-		strResult += '<link href="'+podPressBackendURL+'style/podpress.css" id="podpress_frontend_styles-css" media="all" rel="stylesheet" type="text/css"/>\n';
+		strResult += '<link href="..../../../../podpress.css" id="podpress_frontend_styles-css" media="all" rel="stylesheet" type="text/css"/>\n';
 		// WebKit supports since 525.x and Internet Explorer since 9.0 MP3 in the HTML 5 <audio> element.
 		if ( strExt == 'mp3' &amp;&amp; podPressHTML5 == true &amp;&amp; podPress_is_modern_ie() == true ) {
 			var is_modern_ie = true;
@@ -559,12 +560,12 @@
 		}
 		if ( strExt == 'mp3' &amp;&amp; podPressHTML5 == true &amp;&amp; ((-1 != navigator.userAgent.search(/Webkit\/([0-9]+\.[0-9]+)/gi) &amp;&amp; true == podPress_is_v1_gtoreq_v2(RegExp.$1, '525')) || true == is_modern_ie ) ) {
 			var use_html5 = true;
-			strResult += '<script src="'+podPressBackendURL+'js/podpress_popupplayer.js" type="text/javascript"></script>\n';
+			strResult += '<script src="..../../../../podpress_popupplayer.js" type="text/javascript"></script>\n';
 		} else {
 			var use_html5 = false;
 		}
 		if ( strExt == 'mp3' &amp;&amp; podPressPlayerFile == '1pixelout_player.swf' &amp;&amp; false == use_html5) {
-			strResult += '<script src="'+podPressBackendURL+'players/1pixelout/1pixelout_audio-player.js" type="text/javascript"></script>\n';
+			strResult += '<script src="..../../../../1pixelout/1pixelout_audio-player.js" type="text/javascript"></script>\n';
 			strResult += '<script type="text/javascript">\n//<![CDATA[\n';
 			strResult += '	podpressAudioPlayer.setup("'+podPressBackendURL+'players/1pixelout/'+podPressPlayerFile+'", {bg:"' + podPressPopupPlayerOpt.bg+ '", text:"' + podPressPopupPlayerOpt.text+ '", leftbg:"' + podPressPopupPlayerOpt.leftbg+ '", lefticon:"' + podPressPopupPlayerOpt.lefticon+ '", voltrack:"' + podPressPopupPlayerOpt.voltrack+ '", volslider:"' + podPressPopupPlayerOpt.volslider+ '", rightbg:"' + podPressPopupPlayerOpt.rightbg+ '", rightbghover:"' + podPressPopupPlayerOpt.rightbghover+ '", righticon:"' + podPressPopupPlayerOpt.righticon+ '", righticonhover:"' + podPressPopupPlayerOpt.righticonhover+ '", loader:"' + podPressPopupPlayerOpt.loader+ '", track:"' + podPressPopupPlayerOpt.track+ '", border:"' + podPressPopupPlayerOpt.border+ '", tracker:"' + podPressPopupPlayerOpt.tracker+ '", skip:"' + podPressPopupPlayerOpt.skip+ '", slider:"' + podPressPopupPlayerOpt.slider+ '", initialvolume:"' + podPressPopupPlayerOpt.initialvolume+ '", buffer:"' + podPressPopupPlayerOpt.buffer+ '", checkpolicy:"' + podPressPopupPlayerOpt.checkpolicy+ '", pagebg:"FFFFFF", transparentpagebg:"yes"} );\n';
 			strResult += '//]]>\n</script>\n';
@@ -578,11 +579,11 @@
 		if ( true == use_html5 ) {
 			var maskedurl = decodeURI(strMediaFile);
 			var realurl = podPress_get_OrigURL(strPlayerDiv);
-			strResult += '<div id="podPressPlayerSpace_popup"><audio autoplay="autoplay" controls="controls" id="podpresshtml5_popup" onplaying="podPress_html5_count(\'' + maskedurl + '\', this.id)" preload="metadata"><source src="' + realurl + '/" type="audio/mpeg"/></audio></div>\n';
+			strResult += '<div id="podPressPlayerSpace_popup"><audio autoplay="autoplay" controls="controls" id="podpresshtml5_popup" onplaying="podPress_html5_count(\'' + maskedurl + '\', this.id)" preload="metadata"><source src="https://web.archive.org/web/*/http://cointalk.ca/wp-content/plugins/podpress/js/' + realurl + '" type="audio/mpeg"/></audio></div>\n';
 		} else {
 			if ( strExt == 'mp3' &amp;&amp; podPressPlayerFile == '1pixelout_player.swf' ) {
 				if ( true == podPressMP3PlayerWrapper ) {
-					strResult += '<div class="podpress_listenwrapper_container" style="background-image:url('+podPressBackendURL+'images/listen_wrapper.gif);"><div class="podpress_mp3_borderleft"></div><div class="podpress_1pixelout_container"><div id="podPressPlayerSpace_popup"></div></div></div>\n';
+					strResult += '<div class="podpress_listenwrapper_container" style="background-image:url('+podPressBackendURL+'images..../../../../listen_wrapper.gif);"><div class="podpress_mp3_borderleft"></div><div class="podpress_1pixelout_container"><div id="podPressPlayerSpace_popup"></div></div></div>\n';
 				} else {
 					strResult += '<div id="podPressPlayerSpace_popup"></div>\n';
 				}
@@ -598,7 +599,7 @@
 			}
 		}
 		strResult += '</div>\n';
-		strResult += '<div id="podpress_backtoclose_container"><span id="podpress_popup_backto"><span>' + podpressL10.openblogagain + '</span><br/><a href="' + backlink + '/" target="_blank">' +  backto_name + '</a></span><span id="podpress_popup_close"><a href="podpress@ver=3.7.1.js" onclick="closepopupwindow();">' + podpressL10.close + '</a></span></div>\n';
+		strResult += '<div id="podpress_backtoclose_container"><span id="podpress_popup_backto"><span>' + podpressL10.openblogagain + '</span><br/><a href="https://web.archive.org/web/*/http://cointalk.ca/wp-content/plugins/podpress/js/' + backlink + '" target="_blank">' +  backto_name + '</a></span><span id="podpress_popup_close"><a href="podpress@ver=3.7.1.js" onclick="closepopupwindow();">' + podpressL10.close + '</a></span></div>\n';
 		strResult += '\n';
 		strResult += '';
 

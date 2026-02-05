@@ -1,4 +1,4 @@
-/*
+<html><body>/*
 Theme Name: Twenty Thirteen
 Theme URI: http://wordpress.org/themes/twentythirteen
 Author: the WordPress team
@@ -323,8 +323,8 @@ nav ol {
 	list-style-image: none;
 }
 
-li > ul,
-li > ol {
+li &gt; ul,
+li &gt; ol {
 	margin: 0;
 }
 
@@ -454,7 +454,7 @@ ins {
 }
 
 hr {
-	background: url(images/dotted-line.png) repeat center top;
+	background: url(images....../../../dotted-line.png) repeat center top;
 	background-size: 4px 4px;
 	border: 0;
 	height: 1px;
@@ -484,7 +484,7 @@ hr {
 .comment-reply-link:before,
 .comment-reply-login:before,
 .comment-reply-title small a:before,
-.bypostauthor > .comment-body .fn:before,
+.bypostauthor &gt; .comment-body .fn:before,
 .error404 .page-title:before {
 	-webkit-font-smoothing: antialiased;
 	display: inline-block;
@@ -847,7 +847,7 @@ img.wp-smiley,
 }
 
 ul.nav-menu,
-div.nav-menu > ul {
+div.nav-menu &gt; ul {
 	margin: 0;
 	padding: 0 40px 0 0;
 }
@@ -866,7 +866,7 @@ div.nav-menu > ul {
 	text-decoration: none;
 }
 
-.nav-menu li:hover > a,
+.nav-menu li:hover &gt; a,
 .nav-menu li a:hover {
 	background-color: #220e10;
 	color: #fff;
@@ -903,15 +903,15 @@ ul.nav-menu ul a:hover,
 	background-color: #db572f;
 }
 
-ul.nav-menu li:hover > ul,
-.nav-menu ul li:hover > ul {
+ul.nav-menu li:hover &gt; ul,
+.nav-menu ul li:hover &gt; ul {
 	display: block;
 }
 
-.nav-menu .current_page_item > a,
-.nav-menu .current_page_ancestor > a,
-.nav-menu .current-menu-item > a,
-.nav-menu .current-menu-ancestor > a {
+.nav-menu .current_page_item &gt; a,
+.nav-menu .current_page_ancestor &gt; a,
+.nav-menu .current-menu-item &gt; a,
+.nav-menu .current-menu-ancestor &gt; a {
 	color: #bc360a;
 	font-style: italic;
 }
@@ -936,7 +936,7 @@ ul.nav-menu li:hover > ul,
 
 .site-header .search-field {
 	background-color: transparent;
-	background-image: url(images/search-icon.png);
+	background-image: url(images....../../../search-icon.png);
 	background-position: 5px center;
 	background-repeat: no-repeat;
 	background-size: 24px 24px;
@@ -1037,11 +1037,11 @@ ul.nav-menu li:hover > ul,
 	color: #bc360a;
 }
 
-.entry-meta > span {
+.entry-meta &gt; span {
 	margin-right: 20px;
 }
 
-.entry-meta > span:last-child {
+.entry-meta &gt; span:last-child {
 	margin-right: 0;
 }
 
@@ -1155,7 +1155,7 @@ footer.entry-meta {
 }
 
 .page-links a,
-.page-links > span {
+.page-links &gt; span {
 	background: #fff;
 	border: 1px solid #fff;
 	padding: 5px 10px;
@@ -1183,8 +1183,8 @@ footer.entry-meta {
 	color: #e63f2a;
 }
 
-.format-status .entry-content .page-links > span,
-.format-quote .entry-content .page-links > span {
+.format-status .entry-content .page-links &gt; span,
+.format-quote .entry-content .page-links &gt; span {
 	background: none;
 }
 
@@ -1405,7 +1405,7 @@ footer.entry-meta {
 }
 
 .format-audio .audio-content {
-	background: url(images/dotted-line.png) repeat-y left top;
+	background: url(images....../../../dotted-line.png) repeat-y left top;
 	background-size: 4px 4px;
 	float: right;
 	padding-left: 35px;
@@ -1610,7 +1610,7 @@ footer.entry-meta {
 
 .format-status .entry-content:before,
 .format-status .entry-meta:before {
-	background: url(images/dotted-line.png) repeat-y left bottom;
+	background: url(images....../../../dotted-line.png) repeat-y left bottom;
 	background-size: 4px 4px;
 	content: "";
 	display: block;
@@ -1656,7 +1656,7 @@ footer.entry-meta {
 	width: 13px;
 }
 
-.sidebar .format-status .entry-content > p:first-child:before {
+.sidebar .format-status .entry-content &gt; p:first-child:before {
 	left: 64px;
 }
 
@@ -1933,7 +1933,7 @@ footer.entry-meta {
 	margin: 0 auto;
 	max-width: 604px;
 	padding: 30px 0 10px;
-	text-align: left; /* gallery & video post formats */
+	text-align: left; /* gallery &amp; video post formats */
 	width: 100%;
 }
 
@@ -2118,9 +2118,9 @@ footer.entry-meta {
 	margin-left: 20px;
 }
 
-.comment-list > li:after,
-.comment-list .children > li:before {
-	background: url(images/dotted-line.png) repeat left top;
+.comment-list &gt; li:after,
+.comment-list .children &gt; li:before {
+	background: url(images....../../../dotted-line.png) repeat left top;
 	background-size: 4px 4px;
 	content: "";
 	display: block;
@@ -2128,7 +2128,7 @@ footer.entry-meta {
 	width: 100%;
 }
 
-.comment-list > li:last-child:after {
+.comment-list &gt; li:last-child:after {
 	display: none;
 }
 
@@ -2177,7 +2177,7 @@ footer.entry-meta {
 	width: 100%;
 }
 
-.bypostauthor > .comment-body .fn:before {
+.bypostauthor &gt; .comment-body .fn:before {
 	content: "\f408";
 	vertical-align: text-top;
 }
@@ -2426,8 +2426,8 @@ footer.entry-meta {
 	padding-bottom: 0;
 }
 
-.widget li > ul,
-.widget li > ol {
+.widget li &gt; ul,
+.widget li &gt; ol {
 	margin-left: 20px;
 }
 
@@ -2450,7 +2450,7 @@ footer.entry-meta {
 }
 
 .widget_rss .rss-date,
-.widget_rss li > cite {
+.widget_rss li &gt; cite {
 	color: #a2a2a2;
 }
 
@@ -2808,7 +2808,7 @@ footer.entry-meta {
 	}
 
 	.toggled-on .nav-menu,
-	.toggled-on .nav-menu > ul {
+	.toggled-on .nav-menu &gt; ul {
 		display: block;
 		margin-left: 0;
 		padding: 0;
@@ -2820,7 +2820,7 @@ footer.entry-meta {
 		display: block;
 	}
 
-	.toggled-on .nav-menu li > ul {
+	.toggled-on .nav-menu li &gt; ul {
 		background-color: transparent;
 		display: block;
 		float: none;
@@ -2830,12 +2830,12 @@ footer.entry-meta {
 		top: auto;
 	}
 
-	.toggled-on .nav-menu li > ul a {
+	.toggled-on .nav-menu li &gt; ul a {
 		color: #141412;
 		width: auto;
 	}
 
-	.toggled-on .nav-menu li:hover > a,
+	.toggled-on .nav-menu li:hover &gt; a,
 	.toggled-on .nav-menu .children a {
 		background-color: transparent;
 		color: #141412;
@@ -2848,7 +2848,7 @@ footer.entry-meta {
 	}
 
 	ul.nav-menu,
-	div.nav-menu > ul {
+	div.nav-menu &gt; ul {
 		display: none;
 	}
 
@@ -3006,15 +3006,15 @@ footer.entry-meta {
 	(min-resolution: 120dpi) {
 
 	.site-header .search-field {
-		background-image: url(images/search-icon-2x.png);
+		background-image: url(images....../../../search-icon-2x.png);
 	}
 
 	.format-audio .audio-content,
 	.format-status .entry-content:before,
 	.format-status .entry-meta:before,
-	.comment-list > li:after,
-	.comment-list .children > li:before {
-		background-image: url(images/dotted-line-2x.png);
+	.comment-list &gt; li:after,
+	.comment-list .children &gt; li:before {
+		background-image: url(images....../../../dotted-line-2x.png);
 	}
 }
 
@@ -3107,7 +3107,7 @@ footer.entry-meta {
 	}
 
 	/* Comments */
-	.comments-area > li.comment {
+	.comments-area &gt; li.comment {
 		background: none;
 		position: relative;
 		width: auto;
@@ -3122,4 +3122,4 @@ footer.entry-meta {
 	.comment-reply-login {
 		color: #333;
 	}
-}
+}</body></html>

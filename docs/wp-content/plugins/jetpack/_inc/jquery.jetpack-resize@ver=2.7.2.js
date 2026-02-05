@@ -1,4 +1,4 @@
-/**
+<html><body>/**
  * Resizeable Iframes.
  *
  * Start listening to resize postMessage events for selected iframes:
@@ -93,7 +93,7 @@
 	/**
 	 * Utility to convert URLs into origins
 	 *
-	 * http://example.com:port/path?query#fragment -> http://example.com:port
+	 * http://example.com:port/path?query#fragment -&gt; http://example.com:port
 	 *
 	 * @param string URL
 	 * @return string origin
@@ -280,3 +280,4 @@
 		}
 	} );
 })(jQuery);
+</body></html>

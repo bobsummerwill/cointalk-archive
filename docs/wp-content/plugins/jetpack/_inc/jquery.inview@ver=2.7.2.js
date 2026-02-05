@@ -1,4 +1,4 @@
-/**
+<html><body>/**
  * author Christopher Blum
  *    - based on the idea of Remy Sharp, http://remysharp.com/2009/01/26/element-in-view-event-plugin/
  *    - forked from http://github.com/zuk/jquery.inview/
@@ -59,56 +59,16 @@
       viewportSize   = viewportSize   || getViewportSize();
       viewportOffset = viewportOffset || getViewportOffset();
 
-      for (; i<elementsLength; i++) {
-        // Ignore elements that are not in the DOM tree
-        if (!$.contains(documentElement, $elements[i])) {
-          continue;
-        }
-
-        var element       = $elements[i],
-            $element      = $(element),
-            elementSize   = {},
-            elementOffset = {},
-            inView        = $element.data('inview'),
-            visiblePartX,
-            visiblePartY,
-            visiblePartsMerged;
-
-        // for the case where 'display:none' is used in place of 'visibility:hidden'
-        // count and sum the above items to get and move closer to the correct values
-        // IMPORTANT :: insert element into container empty
-        if($element.css('display') == 'none')
-        {
-            var parentElement = $element.parent();
-
-            elementOffset.top = parentElement.offset().top;
-            elementOffset.left = parentElement.offset().left;
-            elementSize.height = parentElement.height();
-            elementSize.width = parentElement.width();
-        } else {
-       	    elementSize = { height: $element.height(), width: $element.width() }
-       	    elementOffset = $element.offset();
-       	}
-
-        // Don't ask me why because I haven't figured out yet:
-        // viewportOffset and viewportSize are sometimes suddenly null in Firefox 5.
-        // Even though it sounds weird:
-        // It seems that the execution of this function is interferred by the onresize/onscroll event
-        // where viewportOffset and viewportSize are unset
-        if (!viewportOffset || !viewportSize) {
-          return;
-        }
-
-        if (element.offsetWidth >= 0 && element.offsetHeight >= 0 && element.style.display != "none" &&
-            elementOffset.top + elementSize.height > viewportOffset.top &&
-            elementOffset.top < viewportOffset.top + viewportSize.height &&
-            elementOffset.left + elementSize.width > viewportOffset.left &&
-            elementOffset.left < viewportOffset.left + viewportSize.width) {
-          visiblePartX = (viewportOffset.left > elementOffset.left ?
-            'right' : (viewportOffset.left + viewportSize.width) < (elementOffset.left + elementSize.width) ?
+      for (; i<elementslength; !viewportsize)="" $element="$(element)," $element.height(),="" $element.width()="" $elements[i]))="" 'display:none'="" 'none')="" 'visibility:hidden'="" (!$.contains(documentelement,="" (!viewportoffset="" (element.offsetwidth="" 5.="" ::="" above="" and="" are="" ask="" because="" by="" case="" closer="" container="" continue;="" correct="" count="" dom="" don't="" element="$elements[i]," elementoffset="{}," elementoffset.left="parentElement.offset().left;" elementoffset.top="parentElement.offset().top;" elements="" elementsize="{}," elementsize.height="parentElement.height();" elementsize.width="parentElement.width();" else="" empty="" even="" event="" execution="" figured="" firefox="" for="" function="" get="" haven't="" height:="" i="" i++)="" if="" if($element.css('display')="=" ignore="" important="" in="" insert="" interferred="" into="" inview="$element.data('inview')," is="" it="" items="" me="" move="" not="" null="" of="" onresize="" onscroll="" out="" parentelement="$element.parent();" place="" return;="" seems="" sometimes="" sounds="" suddenly="" sum="" that="" the="" this="" though="" to="" tree="" unset="" used="" values="" var="" viewportoffset="" viewportsize="" visiblepartsmerged;="" visiblepartx,="" visibleparty,="" weird:="" where="" why="" width:="" yet:="" {="" ||="" }="">= 0 &amp;&amp; element.offsetHeight &gt;= 0 &amp;&amp; element.style.display != "none" &amp;&amp;
+            elementOffset.top + elementSize.height &gt; viewportOffset.top &amp;&amp;
+            elementOffset.top &lt; viewportOffset.top + viewportSize.height &amp;&amp;
+            elementOffset.left + elementSize.width &gt; viewportOffset.left &amp;&amp;
+            elementOffset.left &lt; viewportOffset.left + viewportSize.width) {
+          visiblePartX = (viewportOffset.left &gt; elementOffset.left ?
+            'right' : (viewportOffset.left + viewportSize.width) &lt; (elementOffset.left + elementSize.width) ?
             'left' : 'both');
-          visiblePartY = (viewportOffset.top > elementOffset.top ?
-            'bottom' : (viewportOffset.top + viewportSize.height) < (elementOffset.top + elementSize.height) ?
+          visiblePartY = (viewportOffset.top &gt; elementOffset.top ?
+            'bottom' : (viewportOffset.top + viewportSize.height) &lt; (elementOffset.top + elementSize.height) ?
             'top' : 'both');
           visiblePartsMerged = visiblePartX + "-" + visiblePartY;
           if (!inView || inView !== visiblePartsMerged) {
@@ -125,8 +85,8 @@
     viewportSize = viewportOffset = null;
   });
 
-  // IE < 9 scrolls to focused elements without firing the "scroll" event
-  if (!documentElement.addEventListener && documentElement.attachEvent) {
+  // IE &lt; 9 scrolls to focused elements without firing the "scroll" event
+  if (!documentElement.addEventListener &amp;&amp; documentElement.attachEvent) {
     documentElement.attachEvent("onfocusin", function() {
       viewportOffset = null;
     });
@@ -140,4 +100,4 @@
   // By the way, iOS (iPad, iPhone, ...) seems to not execute, or at least delays
   // intervals while the user scrolls. Therefore the inview event might fire a bit late there
   setInterval(checkInView, 250);
-})(jQuery);
+})(jQuery);</elementslength;></body></html>

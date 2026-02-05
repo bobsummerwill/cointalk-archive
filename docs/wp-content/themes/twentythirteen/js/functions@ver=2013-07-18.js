@@ -1,4 +1,4 @@
-/**
+<html><body>/**
  * Functionality specific to Twenty Thirteen.
  *
  * Provides helper functions to enhance the theme experience.
@@ -19,7 +19,7 @@
 			    secondary = ( 0 == sidebar.length ) ? -40 : sidebar.height(),
 			    margin    = $( '#tertiary .widget-area' ).height() - $( '#content' ).height() - secondary;
 
-			if ( margin > 0 && _window.innerWidth() > 999 )
+			if ( margin &gt; 0 &amp;&amp; _window.innerWidth() &gt; 999 )
 				$( '#colophon' ).css( 'margin-top', margin + 'px' );
 		}
 	} );
@@ -78,4 +78,4 @@
 			isRTL: body.is( '.rtl' )
 		} );
 	}
-} )( jQuery );
+} )( jQuery );</body></html>

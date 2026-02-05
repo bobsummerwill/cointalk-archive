@@ -1,4 +1,4 @@
-/*
+<html><body>/*
 Styles for older IE versions (previous to IE9).
 */
 
@@ -14,13 +14,13 @@ Styles for older IE versions (previous to IE9).
 .comments-link a:before:hover,
 .tags-links a:first-child:before:hover,
 .categories-links a:first-child:before:hover,
-.edit-link > a:before:hover,
+.edit-link &gt; a:before:hover,
 .attachment-meta:before:hover,
 .attachment-meta a:before:hover,
 .comment-awaiting-moderation:before:hover,
 .comment-reply-link:before:hover,
 .comment-reply-title small a:before:hover,
-.bypostauthor > .comment-body .fn:before:hover {
+.bypostauthor &gt; .comment-body .fn:before:hover {
 	text-decoration: none;
 }
 
@@ -275,10 +275,10 @@ img.alignleft {
 	left: auto;
 }
 
-/* RTL for Internet Explorer 7 & 8 */
+/* RTL for Internet Explorer 7 &amp; 8 */
 .rtl .format-audio .entry-content:before,
 .rtl .comment-reply-link:before,
 .rtl .comment-reply-login:before {
 	-ms-filter: "FlipH";
 	filter: FlipH;
-}
+}</body></html>
