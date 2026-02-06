@@ -656,6 +656,26 @@ class Builder:
                 else:
                     discovered_html.add(abs_url)
 
+        # UX requirement: top-level “About” menu item must not be a link.
+        # In the archived WP theme it is often represented as:
+        #   <li id="menu-item-22" ...><a href="/">About</a>
+        # but it’s a dropdown parent.
+        for li in soup.find_all("li"):
+            li_id = (li.get("id") or "").strip()
+            classes = set(li.get("class") or [])
+            if li_id != "menu-item-22" and "menu-item-22" not in classes:
+                continue
+            a = li.find("a")
+            if not a:
+                continue
+            if (a.get_text(strip=True) or "") != "About":
+                continue
+            # Replace <a> with a <span>, preserving classes for styling.
+            span = soup.new_tag("span")
+            span["class"] = a.get("class") or []
+            span.string = "About"
+            a.replace_with(span)
+
         html_text = str(soup)
 
         # Second pass: catch URLs inside conditional comments, inline <style> blocks,
