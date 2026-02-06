@@ -271,139 +271,139 @@ div.sharedaddy .no-icon a span, div.sharedaddy li.no-icon div a span {
 /* Icons */
 
 li.share-facebook a.sd-button &gt; span {
-	background-image: url('images....../../../../../facebook.png');
+	background-image: url('images......../../../../../facebook.png');
 }
 
 li.share-tumblr a.sd-button &gt; span {
-	background-image: url('images....../../../../../tumblr.png');
+	background-image: url('images......../../../../../tumblr.png');
 }
 
 li.share-twitter a.sd-button &gt; span {
-	background-image: url('images....../../../../../twitter@1.png');
+	background-image: url('images......../../../../../twitter@1.png');
 }
 
 li.share-google-plus-1 a.sd-button &gt; span {
-	background-image: url('images....../../../../../googleplus1@1.png');
+	background-image: url('images......../../../../../googleplus1@1.png');
 }
 
 li.share-linkedin a.sd-button &gt; span {
-	background-image: url('images....../../../../../linkedin.png');
+	background-image: url('images......../../../../../linkedin.png');
 }
 
 li.share-press-this a.sd-button &gt; span {
-	background-image: url('images....../../../../../wordpress.png');
+	background-image: url('images......../../../../../wordpress.png');
 }
 
 li.share-digg a.sd-button &gt; span {
-	background-image: url('images....../../../../../digg.png');
+	background-image: url('images......../../../../../digg.png');
 }
 
 li.share-stumbleupon a.sd-button &gt; span {
-	background-image: url('images....../../../../../stumbleupon.png');
+	background-image: url('images......../../../../../stumbleupon.png');
 }
 
 li.share-reddit a.sd-button &gt; span {
-	background-image: url('images....../../../../../reddit.png');
+	background-image: url('images......../../../../../reddit.png');
 }
 
 li.share-pinterest a.sd-button &gt; span {
-	background-image: url('images....../../../../../pinterest.png');
+	background-image: url('images......../../../../../pinterest.png');
 }
 
 li.share-pocket a.sd-button &gt; span {
-	background-image: url('images....../../../../../pocket.png');
+	background-image: url('images......../../../../../pocket.png');
 }
 
 li.share-kindle a.sd-button &gt; span {
-	background-image: url('images....../../../../../kindle.png');
+	background-image: url('images......../../../../../kindle.png');
 }
 
 li.share-email a.sd-button &gt; span {
-	background-image: url('images....../../../../../email.png');
+	background-image: url('images......../../../../../email.png');
 }
 
 li.share-print a.sd-button &gt; span {
-	background-image: url('images....../../../../../print.png');
+	background-image: url('images......../../../../../print.png');
 }
 
 a.sd-button.share-more span {
-	background-image: url('images....../../../../../more.png');
+	background-image: url('images......../../../../../more.png');
 }
 
 @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 120dpi) {
 
 	li.share-facebook a.sd-button &gt; span {
-		background-image: url('images....../../../../../facebook@2x.png');
+		background-image: url('images......../../../../../facebook@2x.png');
 		background-size: 16px 16px;
 	}
 
 	li.share-tumblr a.sd-button &gt; span {
-		background-image: url('images....../../../../../tumblr@2x.png');
+		background-image: url('images......../../../../../tumblr@2x.png');
 		background-size: 16px 16px;
 	}
 
 	li.share-twitter a.sd-button &gt; span {
-		background-image: url('images....../../../../../twitter@2x@1.png');
+		background-image: url('images......../../../../../twitter@2x@1.png');
 		background-size: 16px 16px;
 	}
 
 	li.share-google-plus-1 a.sd-button &gt; span {
-		background-image: url('images....../../../../../googleplus1@2x.png');
+		background-image: url('images......../../../../../googleplus1@2x.png');
 		background-size: 16px 16px;
 	}
 
 	li.share-linkedin a.sd-button &gt; span {
-		background-image: url('images....../../../../../linkedin@2x.png');
+		background-image: url('images......../../../../../linkedin@2x.png');
 		background-size: 16px 16px;
 	}
 
 	li.share-press-this a.sd-button &gt; span {
-		background-image: url('images....../../../../../wordpress@2x.png');
+		background-image: url('images......../../../../../wordpress@2x.png');
 		background-size: 16px 16px;
 	}
 
 	li.share-digg a.sd-button &gt; span {
-		background-image: url('images....../../../../../digg@2x@1.png');
+		background-image: url('images......../../../../../digg@2x@1.png');
 		background-size: 16px 16px;
 	}
 
 	li.share-stumbleupon a.sd-button &gt; span {
-		background-image: url('images....../../../../../stumbleupon@2x.png');
+		background-image: url('images......../../../../../stumbleupon@2x.png');
 		background-size: 16px 16px;
 	}
 
 	li.share-reddit a.sd-button &gt; span {
-		background-image: url('images....../../../../../reddit@2x.png');
+		background-image: url('images......../../../../../reddit@2x.png');
 		background-size: 16px 16px;
 	}
 
 	li.share-pinterest a.sd-button &gt; span {
-		background-image: url('images....../../../../../pinterest@2x.png');
+		background-image: url('images......../../../../../pinterest@2x.png');
 		background-size: 16px 16px;
 	}
 
 	li.share-pocket a.sd-button &gt; span {
-		background-image: url('images....../../../../../pocket@2x.png');
+		background-image: url('images......../../../../../pocket@2x.png');
 		background-size: 16px 16px;
 	}
 
 	li.share-kindle a.sd-button &gt; span {
-		background-image: url('images....../../../../../kindle@2x.png');
+		background-image: url('images......../../../../../kindle@2x.png');
 		background-size: 16px 16px;
 	}
 
 	li.share-email a.sd-button &gt; span {
-		background-image: url('images....../../../../../email@2x@1.png');
+		background-image: url('images......../../../../../email@2x@1.png');
 		background-size: 16px 16px;
 	}
 
 	li.share-print a.sd-button &gt; span {
-		background-image: url('images....../../../../../print@2x.png');
+		background-image: url('images......../../../../../print@2x.png');
 		background-size: 16px 16px;
 	}
 
 	a.sd-button.share-more span {
-		background-image: url('images....../../../../../more@2x@1.png');
+		background-image: url('images......../../../../../more@2x@1.png');
 		background-size: 16px 16px;
 	}
 

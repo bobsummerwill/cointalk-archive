@@ -284,7 +284,7 @@
 				}
 				strResult = '';
 				if(podPressMP3PlayerWrapper) {
-					strResult += '<div style="width:342px; height:40px; padding:0px; margin:0px; background-image:url('+podPressBackendURL+'images..../../../../listen_wrapper.gif); display:block;"><span style="width:45px;height:40px;display:block;float:left;"> </span>';
+					strResult += '<div style="width:342px; height:40px; padding:0px; margin:0px; background-image:url('+podPressBackendURL+'images....../../../../listen_wrapper.gif); display:block;"><span style="width:45px;height:40px;display:block;float:left;"> </span>';
 					strResult += '<div style="width:290px; height:24px; margin:0px; padding:8px 0px 8px 0px; display:block; float:left; background-color:transparent;">';
 				}
 				strResult += '<object class="podpress_player_object" classid="CLSID:D27CDB6E-AE6D-11cf-96B8-444553540000" data="'+podPressBackendURL+'players/'+podPressPlayerFile+'" height="24" id="audioplayer'+strPlayerDiv+'" style="display:block;" type="application/x-shockwave-flash" width="290">';
@@ -333,7 +333,7 @@
 			refPlayerDivLink.innerHTML=podPressText_HidePlayer;
 			refPlayerDivLink.parentNode.onclick = function(){ podPressShowHidePlayer(strPlayerDiv, strMediaFile, numWidth, numHeight, 'true', strPreviewImg, strTitle, strArtist); return false; };
 			if ( strExt == 'mp3' &amp;&amp; podPressPlayerFile == '1pixelout_player.swf' &amp;&amp; true == podPressMP3PlayerWrapper ) {
-				document.getElementById('podpress_lwc_' + strPlayerDiv).style.backgroundImage = 'url('+podPressBackendURL+'images..../../../../listen_wrapper.gif)';
+				document.getElementById('podpress_lwc_' + strPlayerDiv).style.backgroundImage = 'url('+podPressBackendURL+'images....../../../../listen_wrapper.gif)';
 				document.getElementById('podpress_lwc_' + strPlayerDiv).style.display='block';
 			}
 			refPlayerDiv.parentNode.style.display='block';
@@ -342,7 +342,7 @@
 			if(refPlayerDivLink.innerHTML == podPressText_PlayNow) {
 				refPlayerDivLink.innerHTML=podPressText_HidePlayer;
 				if ( strExt == 'mp3' &amp;&amp; podPressPlayerFile == '1pixelout_player.swf' &amp;&amp; true == podPressMP3PlayerWrapper ) {
-					document.getElementById('podpress_lwc_' + strPlayerDiv).style.backgroundImage = 'url('+podPressBackendURL+'images..../../../../listen_wrapper.gif)';
+					document.getElementById('podpress_lwc_' + strPlayerDiv).style.backgroundImage = 'url('+podPressBackendURL+'images....../../../../listen_wrapper.gif)';
 					document.getElementById('podpress_lwc_' + strPlayerDiv).style.display='block';
 				}
 				refPlayerDiv.parentNode.style.display='block';
@@ -390,7 +390,7 @@
 			if ( podPressHTML5_showplayersdirectly == true || -1 != navigator.userAgent.search(/iPhone|iPod|iPad/gi) ) {
 				podPressenprintHTML5audio(strPlayerDiv, strMediaFile);
 			} else {
-				document.getElementById('podPressPlayerSpace_' + strPlayerDiv).innerHTML = '<a class="podpress_play_button" href="javascript:void(null);" id="podpress_html5_play_'+ strPlayerDiv+'" onclick="podPressenprintHTML5audio(\''+strPlayerDiv+'\', \'' + strMediaFile + '\', true);" style="background-image:url('+podPressBackendURL+'images..../../../../play_button_dyn_v4_32.png);" title="' + podpressL10.playbutton + '"></a>';
+				document.getElementById('podPressPlayerSpace_' + strPlayerDiv).innerHTML = '<a class="podpress_play_button" href="javascript:void(null);" id="podpress_html5_play_'+ strPlayerDiv+'" onclick="podPressenprintHTML5audio(\''+strPlayerDiv+'\', \'' + strMediaFile + '\', true);" style="background-image:url('+podPressBackendURL+'images....../../../../play_button_dyn_v4_32.png);" title="' + podpressL10.playbutton + '"></a>';
 			}
 		} else {
 			if ( strExt == 'mp3' &amp;&amp; podPressPlayerFile == '1pixelout_player.swf' ) {
@@ -545,6 +545,7 @@
 		
 		var strResult = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
+
 \n';
 		strResult += '\n';
 		strResult += '\n';
@@ -583,7 +584,7 @@
 		} else {
 			if ( strExt == 'mp3' &amp;&amp; podPressPlayerFile == '1pixelout_player.swf' ) {
 				if ( true == podPressMP3PlayerWrapper ) {
-					strResult += '<div class="podpress_listenwrapper_container" style="background-image:url('+podPressBackendURL+'images..../../../../listen_wrapper.gif);"><div class="podpress_mp3_borderleft"></div><div class="podpress_1pixelout_container"><div id="podPressPlayerSpace_popup"></div></div></div>\n';
+					strResult += '<div class="podpress_listenwrapper_container" style="background-image:url('+podPressBackendURL+'images....../../../../listen_wrapper.gif);"><div class="podpress_mp3_borderleft"></div><div class="podpress_1pixelout_container"><div id="podPressPlayerSpace_popup"></div></div></div>\n';
 				} else {
 					strResult += '<div id="podPressPlayerSpace_popup"></div>\n';
 				}
