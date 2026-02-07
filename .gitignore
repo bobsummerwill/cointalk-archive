@@ -48,3 +48,4 @@ venv311
 
 # Wayback builder cache
 .cache/
+__pycache__/
