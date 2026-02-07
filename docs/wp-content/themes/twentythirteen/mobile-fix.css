@@ -1,0 +1,83 @@
+/* Mobile-friendly overrides for the static archive */
+
+/* Ensure content doesn't overflow on narrow screens */
+@media (max-width: 767px) {
+    .site {
+        overflow-x: hidden;
+    }
+    
+    .site-header {
+        background-size: cover !important;
+    }
+    
+    /* Stack sidebar below content on mobile */
+    .site-main .sidebar-container {
+        position: relative !important;
+        height: auto !important;
+        top: 0 !important;
+    }
+    
+    .site-main .widget-area {
+        float: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        left: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Prevent content from having huge right padding for sidebar */
+    .sidebar .entry-header,
+    .sidebar .entry-content,
+    .sidebar .entry-summary,
+    .sidebar .entry-meta {
+        padding-right: 20px !important;
+        padding-left: 20px !important;
+        max-width: 100% !important;
+    }
+    
+    .sidebar .comments-title,
+    .sidebar .comment-list,
+    .sidebar .comment-reply-title,
+    .sidebar .comment-navigation,
+    .sidebar .comment-respond .comment-form,
+    .sidebar .site-info,
+    .sidebar .paging-navigation .nav-links,
+    .sidebar .post-navigation .nav-links {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        max-width: 100% !important;
+    }
+    
+    /* Make nav usable on mobile */
+    .nav-menu {
+        font-size: 14px;
+    }
+    
+    /* Audio player width */
+    .podPress_content,
+    .wp-audio-shortcode,
+    audio {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    
+    /* Prevent iframes from overflowing */
+    iframe {
+        max-width: 100% !important;
+    }
+    
+    /* Facebook widget shouldn't force width */
+    .widget_facebook_likebox iframe {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-title {
+        font-size: 24px !important;
+    }
+    
+    .entry-title {
+        font-size: 20px !important;
+    }
+}
