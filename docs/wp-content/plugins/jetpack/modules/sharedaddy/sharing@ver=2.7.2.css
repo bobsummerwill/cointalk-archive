@@ -1,4 +1,4 @@
-<html><body>li.share-print a.sd-button &gt; spandiv.sharedaddy ul,
+li.share-print a.sd-button > spandiv.sharedaddy ul,
 div.sharedaddy li {
 	margin: 0;
 	padding: 0;
@@ -184,7 +184,7 @@ div.sharedaddy a.sd-button:active {
 	border-color: #ddd;
 }
 
-a.sd-button &gt; span {
+a.sd-button > span {
 	padding: 4px 8px;
 	display: block;
 	opacity: .8;
@@ -210,14 +210,14 @@ a.sd-button:hover span {
 
 /* Button Style Options */
 
-.sd-social-icon-text a.sd-button &gt; span,
-a.sd-button &gt; span {
+.sd-social-icon-text a.sd-button > span,
+a.sd-button > span {
 	padding: 1px 5px 1px 23px;
 	background-position: 2px center;
 	background-repeat: no-repeat;
 }
 
-.sd-social-icon a.sd-button &gt; span {
+.sd-social-icon a.sd-button > span {
 	padding: 3px;
 	width: 16px;
 	height: 16px;
@@ -226,7 +226,7 @@ a.sd-button &gt; span {
 	background-repeat: no-repeat;
 }
 
-.sd-social-text a.sd-button &gt; span {
+.sd-social-text a.sd-button > span {
 	background: none !important;
 	padding-left: 5px
 }
@@ -250,14 +250,14 @@ div.sharedaddy .no-icon a span, div.sharedaddy li.no-icon div a span {
 }
 
 /* @noflip */
-.rtl .sd-social-icon-text a.sd-button &gt; span,
-.rtl a.sd-button &gt; span {
+.rtl .sd-social-icon-text a.sd-button > span,
+.rtl a.sd-button > span {
 	padding: 3px 23px 3px 5px;
 	background-position: 98% center;
 }
 
 /* @noflip */
-.rtl .sd-social-text a.sd-button &gt; span {
+.rtl .sd-social-text a.sd-button > span {
 	padding-left: 0;
 	padding-right: 5px
 }
@@ -270,140 +270,140 @@ div.sharedaddy .no-icon a span, div.sharedaddy li.no-icon div a span {
 
 /* Icons */
 
-li.share-facebook a.sd-button &gt; span {
-	background-image: url(images/facebook.png);
+li.share-facebook a.sd-button > span {
+	background-image: url('images/facebook.png');
 }
 
-li.share-tumblr a.sd-button &gt; span {
-	background-image: url(images/tumblr.png);
+li.share-tumblr a.sd-button > span {
+	background-image: url('images/tumblr.png');
 }
 
-li.share-twitter a.sd-button &gt; span {
-	background-image: url(images/twitter@1.png);
+li.share-twitter a.sd-button > span {
+	background-image: url('images/twitter.png?1');
 }
 
-li.share-google-plus-1 a.sd-button &gt; span {
-	background-image: url(images/googleplus1@1.png);
+li.share-google-plus-1 a.sd-button > span {
+	background-image: url('images/googleplus1.png?1');
 }
 
-li.share-linkedin a.sd-button &gt; span {
-	background-image: url(images/linkedin.png);
+li.share-linkedin a.sd-button > span {
+	background-image: url('images/linkedin.png');
 }
 
-li.share-press-this a.sd-button &gt; span {
-	background-image: url(images/wordpress.png);
+li.share-press-this a.sd-button > span {
+	background-image: url('images/wordpress.png');
 }
 
-li.share-digg a.sd-button &gt; span {
-	background-image: url(images/digg.png);
+li.share-digg a.sd-button > span {
+	background-image: url('images/digg.png');
 }
 
-li.share-stumbleupon a.sd-button &gt; span {
-	background-image: url(images/stumbleupon.png);
+li.share-stumbleupon a.sd-button > span {
+	background-image: url('images/stumbleupon.png');
 }
 
-li.share-reddit a.sd-button &gt; span {
-	background-image: url(images/reddit.png);
+li.share-reddit a.sd-button > span {
+	background-image: url('images/reddit.png');
 }
 
-li.share-pinterest a.sd-button &gt; span {
-	background-image: url(images/pinterest.png);
+li.share-pinterest a.sd-button > span {
+	background-image: url('images/pinterest.png');
 }
 
-li.share-pocket a.sd-button &gt; span {
-	background-image: url(images/pocket.png);
+li.share-pocket a.sd-button > span {
+	background-image: url('images/pocket.png');
 }
 
-li.share-kindle a.sd-button &gt; span {
-	background-image: url(images/kindle.png);
+li.share-kindle a.sd-button > span {
+	background-image: url('images/kindle.png');
 }
 
-li.share-email a.sd-button &gt; span {
-	background-image: url(images/email.png);
+li.share-email a.sd-button > span {
+	background-image: url('images/email.png');
 }
 
-li.share-print a.sd-button &gt; span {
-	background-image: url(images/print.png);
+li.share-print a.sd-button > span {
+	background-image: url('images/print.png');
 }
 
 a.sd-button.share-more span {
-	background-image: url(images/more.png);
+	background-image: url('images/more.png');
 }
 
 @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 120dpi) {
 
-	li.share-facebook a.sd-button &gt; span {
-		background-image: url(images/facebook@2x.png);
+	li.share-facebook a.sd-button > span {
+		background-image: url('images/facebook@2x.png');
 		background-size: 16px 16px;
 	}
 
-	li.share-tumblr a.sd-button &gt; span {
-		background-image: url(images/tumblr@2x.png);
+	li.share-tumblr a.sd-button > span {
+		background-image: url('images/tumblr@2x.png');
 		background-size: 16px 16px;
 	}
 
-	li.share-twitter a.sd-button &gt; span {
-		background-image: url(images/twitter@2x@1.png);
+	li.share-twitter a.sd-button > span {
+		background-image: url('images/twitter@2x.png?1');
 		background-size: 16px 16px;
 	}
 
-	li.share-google-plus-1 a.sd-button &gt; span {
-		background-image: url(images/googleplus1@2x.png);
+	li.share-google-plus-1 a.sd-button > span {
+		background-image: url('images/googleplus1@2x.png');
 		background-size: 16px 16px;
 	}
 
-	li.share-linkedin a.sd-button &gt; span {
-		background-image: url(images/linkedin@2x.png);
+	li.share-linkedin a.sd-button > span {
+		background-image: url('images/linkedin@2x.png');
 		background-size: 16px 16px;
 	}
 
-	li.share-press-this a.sd-button &gt; span {
-		background-image: url(images/wordpress@2x.png);
+	li.share-press-this a.sd-button > span {
+		background-image: url('images/wordpress@2x.png');
 		background-size: 16px 16px;
 	}
 
-	li.share-digg a.sd-button &gt; span {
-		background-image: url(images/digg@2x@1.png);
+	li.share-digg a.sd-button > span {
+		background-image: url('images/digg@2x.png?1');
 		background-size: 16px 16px;
 	}
 
-	li.share-stumbleupon a.sd-button &gt; span {
-		background-image: url(images/stumbleupon@2x.png);
+	li.share-stumbleupon a.sd-button > span {
+		background-image: url('images/stumbleupon@2x.png');
 		background-size: 16px 16px;
 	}
 
-	li.share-reddit a.sd-button &gt; span {
-		background-image: url(images/reddit@2x.png);
+	li.share-reddit a.sd-button > span {
+		background-image: url('images/reddit@2x.png');
 		background-size: 16px 16px;
 	}
 
-	li.share-pinterest a.sd-button &gt; span {
-		background-image: url(images/pinterest@2x.png);
+	li.share-pinterest a.sd-button > span {
+		background-image: url('images/pinterest@2x.png');
 		background-size: 16px 16px;
 	}
 
-	li.share-pocket a.sd-button &gt; span {
-		background-image: url(images/pocket@2x.png);
+	li.share-pocket a.sd-button > span {
+		background-image: url('images/pocket@2x.png');
 		background-size: 16px 16px;
 	}
 
-	li.share-kindle a.sd-button &gt; span {
-		background-image: url(images/kindle@2x.png);
+	li.share-kindle a.sd-button > span {
+		background-image: url('images/kindle@2x.png');
 		background-size: 16px 16px;
 	}
 
-	li.share-email a.sd-button &gt; span {
-		background-image: url(images/email@2x@1.png);
+	li.share-email a.sd-button > span {
+		background-image: url('images/email@2x.png?1');
 		background-size: 16px 16px;
 	}
 
-	li.share-print a.sd-button &gt; span {
-		background-image: url(images/print@2x.png);
+	li.share-print a.sd-button > span {
+		background-image: url('images/print@2x.png');
 		background-size: 16px 16px;
 	}
 
 	a.sd-button.share-more span {
-		background-image: url(images/more@2x@1.png);
+		background-image: url('images/more@2x.png?1');
 		background-size: 16px 16px;
 	}
 
@@ -534,4 +534,24 @@ body.rtl .sharing li {
 .rtl #sharing_email .sharing_cancel {
 	padding: 0 10px 0 0;
 }
-</body></html>
+
+/*
+     FILE ARCHIVED ON 11:06:08 Dec 19, 2014 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 01:25:09 Feb 07, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.702
+  exclusion.robots: 0.056
+  exclusion.robots.policy: 0.038
+  esindex: 0.012
+  cdx.remote: 5.507
+  LoadShardBlock: 131.921 (3)
+  PetaboxLoader3.datanode: 216.465 (4)
+  PetaboxLoader3.resolve: 137.742 (3)
+  load_resource: 271.668
+*/

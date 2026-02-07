@@ -1,4 +1,4 @@
-<html><body>/*
+/*
 Styles for older IE versions (previous to IE9).
 */
 
@@ -14,13 +14,13 @@ Styles for older IE versions (previous to IE9).
 .comments-link a:before:hover,
 .tags-links a:first-child:before:hover,
 .categories-links a:first-child:before:hover,
-.edit-link &gt; a:before:hover,
+.edit-link > a:before:hover,
 .attachment-meta:before:hover,
 .attachment-meta a:before:hover,
 .comment-awaiting-moderation:before:hover,
 .comment-reply-link:before:hover,
 .comment-reply-title small a:before:hover,
-.bypostauthor &gt; .comment-body .fn:before:hover {
+.bypostauthor > .comment-body .fn:before:hover {
 	text-decoration: none;
 }
 
@@ -275,10 +275,30 @@ img.alignleft {
 	left: auto;
 }
 
-/* RTL for Internet Explorer 7 &amp; 8 */
+/* RTL for Internet Explorer 7 & 8 */
 .rtl .format-audio .entry-content:before,
 .rtl .comment-reply-link:before,
 .rtl .comment-reply-login:before {
 	-ms-filter: "FlipH";
 	filter: FlipH;
-}</body></html>
+}
+/*
+     FILE ARCHIVED ON 10:15:53 Nov 12, 2014 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 01:25:07 Feb 07, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 1.069
+  exclusion.robots: 0.53
+  exclusion.robots.policy: 0.036
+  esindex: 0.012
+  cdx.remote: 53.487
+  LoadShardBlock: 250.973 (3)
+  PetaboxLoader3.datanode: 2180.446 (5)
+  PetaboxLoader3.resolve: 184.454 (4)
+  load_resource: 2199.246 (2)
+*/
