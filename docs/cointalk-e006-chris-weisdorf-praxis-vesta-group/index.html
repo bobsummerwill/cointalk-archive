@@ -7,7 +7,7 @@
 <!--<![endif]-->
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width" name="viewport"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>CoinTalk E006 – Chris Weisdorf – Praxis Vesta Group | CoinTalk</title>
 <link href="http://gmpg.org/xfn/11" rel="profile"/>
 <link href="https://web.archive.org/web/*/http://cointalk.ca/xmlrpc.php" rel="pingback"/>
@@ -111,7 +111,21 @@ var podPressText_HidePlayer = "Hide Player";
 			clip: rect(1px 1px 1px 1px); /* IE7 */
 			clip: rect(1px, 1px, 1px, 1px);
 		}
-		</style>
+		
+    @media (max-width: 767px) {
+        .site-header {
+            background-image: url(../wp-content/uploads/2013/12/cropped-cointalkbanner_ad-mobile.png) !important;
+            background-size: 100% auto !important;
+            background-position: center top !important;
+            background-repeat: no-repeat !important;
+        }
+        .site-header .home-link {
+            min-height: 0 !important;
+            padding-top: 54.8% !important; /* 230/375 aspect ratio */
+        }
+    }
+</style>
+<link rel="stylesheet" href="../wp-content/themes/twentythirteen/mobile-fix.css" type="text/css" media="all"/>
 </head>
 <body class="single single-post postid-128 single-format-standard single-author">
 <div class="hfeed site" id="page">
