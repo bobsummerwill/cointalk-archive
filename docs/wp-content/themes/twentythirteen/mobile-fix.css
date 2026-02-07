@@ -6,19 +6,11 @@
         overflow-x: hidden;
     }
     
-    /* Swap to cropped mobile banner showing the logo */
-    .site-header {
-        background-size: cover !important;
-        background-position: left top !important;
-    }
-    
     /* 
-     * Use mobile-cropped banners that focus on the logo.
-     * The banner images are set via inline <style> in each HTML page with 
-     * varying relative paths, so we can't easily override the URL from here.
-     * Instead, just ensure the existing banner scales and positions well.
-     * background-size:cover + background-position:left crops from the right,
-     * keeping the logo visible on the left side of the banner.
+     * Mobile banner image swap is handled per-page via inline @media queries
+     * in the twentythirteen-header-css style block (each page has different
+     * relative paths to the banner). Do not set background-size/position here
+     * as it would override the inline contain/center rules.
      */
     
     /* Stack sidebar below content on mobile */
