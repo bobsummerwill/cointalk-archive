@@ -1,37 +1,43 @@
-<!--?xml version="1.0" encoding="utf-8" ?--><html><body><manifest xmlns="http://schemas.microsoft.com/wlw/manifest/weblog">
-<options>
-<clienttype>WordPress</clienttype>
-<supportskeywords>Yes</supportskeywords>
-<supportsgettags>Yes</supportsgettags>
-</options>
-<weblog>
-<servicename>WordPress</servicename>
-<imageurl>images....../wlw/wp-icon.png</imageurl>
-<watermarkimageurl>images....../wlw/wp-watermark.png</watermarkimageurl>
-<homepagelinktext>View site</homepagelinktext>
-<adminlinktext>Dashboard</adminlinktext>
-<adminurl>
-<!--[CDATA[ 
+<?xml version="1.0" encoding="utf-8" ?>
+
+<manifest xmlns="http://schemas.microsoft.com/wlw/manifest/weblog">
+
+  <options>
+    <clientType>WordPress</clientType>
+	<supportsKeywords>Yes</supportsKeywords>
+	<supportsGetTags>Yes</supportsGetTags>
+  </options>
+  
+  <weblog>
+    <serviceName>WordPress</serviceName>
+    <imageUrl>images/wlw/wp-icon.png</imageUrl>
+    <watermarkImageUrl>images/wlw/wp-watermark.png</watermarkImageUrl>
+    <homepageLinkText>View site</homepageLinkText>
+    <adminLinkText>Dashboard</adminLinkText>
+    <adminUrl>
+      <![CDATA[ 
 			{blog-postapi-url}/../wp-admin/ 
-		]]-->
-</adminurl>
-<posteditingurl>
-<!--[CDATA[ 
+		]]>
+    </adminUrl>
+    <postEditingUrl>
+      <![CDATA[ 
 			{blog-postapi-url}/../wp-admin/post.php?action=edit&post={post-id} 
-		]]-->
-</posteditingurl>
-</weblog>
-<buttons>
-<button>
-<id>0</id>
-<text>Manage Comments</text>
-<imageurl>images....../wlw/wp-comments.png</imageurl>
-<clickurl>
-<!--[CDATA[ 
+		]]>
+    </postEditingUrl>
+  </weblog>
+
+  <buttons>
+    <button>
+      <id>0</id>
+      <text>Manage Comments</text>
+      <imageUrl>images/wlw/wp-comments.png</imageUrl>
+      <clickUrl>
+        <![CDATA[ 
 				{blog-postapi-url}/../wp-admin/edit-comments.php
-			]]-->
-</clickurl>
-</button>
-</buttons>
+			]]>
+      </clickUrl>
+    </button>
+
+  </buttons>
+
 </manifest>
-</body></html>

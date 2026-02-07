@@ -488,7 +488,7 @@ class Builder:
                     self._save_caches()
                     last_err = None
                     break
-                except (requests.exceptions.ChunkedEncodingError, requests.exceptions.ConnectionError, requests.exceptions.ReadTimeout) as e:
+                except (requests.exceptions.HTTPError, requests.exceptions.ChunkedEncodingError, requests.exceptions.ConnectionError, requests.exceptions.ReadTimeout) as e:
                     last_err = e
                     try:
                         resp.close()  # type: ignore[name-defined]
@@ -685,7 +685,10 @@ class Builder:
         #
         # We intentionally do NOT match general relative paths here (e.g. "wp-content/..."),
         # because those can be ambiguous without a base URL.
-        embedded_re = re.compile(r"(?P<url>(?:https?:)?//[^\"'\s<>\)]+|/[^\"'\s<>\)]+)")
+        # Lookbehind ensures we only match standalone URLs (after a quote, =, whitespace,
+        # or parenthesis), NOT mid-path slashes inside already-rewritten relative hrefs
+        # like "wp-content/themes/..." where "/themes/..." would be a false positive.
+        embedded_re = re.compile(r"(?<=[\"'=\s\(])(?P<url>(?:https?:)?//[^\"'\s<>\)]+|/[^\"'\s<>\)]+)")
 
         def embedded_repl(m: re.Match) -> str:
             raw = m.group("url")
