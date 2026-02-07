@@ -44,3 +44,8 @@ node_modules/
 
 venv
 venv311
+.venv/
+
+# Wayback builder cache
+.cache/
+__pycache__/
