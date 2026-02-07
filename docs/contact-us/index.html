@@ -68,7 +68,16 @@ powerpress_url = '../wp-content/plugins/powerpress';
 			clip: rect(1px 1px 1px 1px); /* IE7 */
 			clip: rect(1px, 1px, 1px, 1px);
 		}
-		</style>
+		
+    @media (max-width: 767px) {
+        .site-header {
+            background-image: url(../wp-content/uploads/2013/12/cropped-cointalkbanner2-mobile.png) !important;
+            background-size: contain !important;
+            background-position: center top !important;
+            padding-bottom: 0;
+        }
+    }
+</style>
 <!-- Dojo Digital Hide Title -->
 <script type="text/javascript">
 	jQuery(document).ready(function($){
