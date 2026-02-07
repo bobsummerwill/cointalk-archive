@@ -72,9 +72,13 @@ powerpress_url = '../wp-content/plugins/powerpress';
     @media (max-width: 767px) {
         .site-header {
             background-image: url(../wp-content/uploads/2013/12/cropped-cointalkbanner2-mobile.png) !important;
-            background-size: contain !important;
+            background-size: 100% auto !important;
             background-position: center top !important;
-            padding-bottom: 0;
+            background-repeat: no-repeat !important;
+        }
+        .site-header .home-link {
+            min-height: 0 !important;
+            padding-top: 61.3% !important; /* 230/375 aspect ratio */
         }
     }
 </style>
